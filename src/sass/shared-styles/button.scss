@@ -1,1 +1,28 @@
 @import "../global";
+.button {
+	padding: 0.35em 0.5em;
+	margin: 0.25em;
+	cursor: pointer;
+	&:focus {
+		background-color: rgb(67, 168, 199);
+	}
+}
+@media (max-width: 576px) {
+	.button {
+		margin: 0.25em auto;
+		width: 150px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+@media (min-width: 768px) {
+	.button {
+		padding: 0.45em 0.6em;
+	}
+}
+@media (min-width: 1200px) {
+	.button {
+		padding: 0.5em 0.8rem;
+	}
+}

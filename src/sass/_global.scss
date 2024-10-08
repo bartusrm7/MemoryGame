@@ -16,16 +16,16 @@ body {
 	color: $main-letters-color;
 	font-family: $global-font;
 }
-div,
-p,
-span {
-	font-size: 1rem;
-}
+
 @media (min-width: 376px) {
 	div,
 	p,
 	span {
 		font-size: 1.1rem;
+	}
+	button,
+	input {
+		font-size: 0.9rem;
 	}
 }
 @media (min-width: 768px) {
@@ -34,6 +34,10 @@ span {
 	span {
 		font-size: 1.2rem;
 	}
+	button,
+	input {
+		font-size: 1rem;
+	}
 }
 
 @media (min-width: 1200px) {
@@ -41,5 +45,9 @@ span {
 	p,
 	span {
 		font-size: 1.3rem;
+	}
+	button,
+	input {
+		font-size: 1.1rem;
 	}
 }

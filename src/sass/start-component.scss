@@ -14,9 +14,32 @@
 		align-items: center;
 	}
 	&__container {
-		padding: 1em;
+		text-align: center;
+		padding: 3em;
 	}
 	.containers {
-		margin: 1em 0;
+		margin: 1.5em 0;
+	}
+	&__short-description {
+		margin-bottom: 0.25em;
+	}
+	.input {
+		padding: 0.25em 0.5em;
+	}
+}
+@media (min-width: 376px) {
+	.start-component {
+		.input {
+			padding: 0.35em 0.5em;
+		}
+	}
+}
+@media (max-width: 576px) {
+	.start-component {
+		&__short-description {
+			button {
+				width: 150px;
+			}
+		}
 	}
 }
