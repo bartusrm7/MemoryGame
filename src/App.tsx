@@ -1,8 +1,9 @@
+import Dashboard from "./components/dashboard-components/Dashboard";
+
 const App: React.FC = () => {
 	return (
 		<>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus provident asperiores voluptas explicabo
-			temporibus quos sapiente accusamus dignissimos rem amet?
+			<Dashboard />
 		</>
 	);
 };
