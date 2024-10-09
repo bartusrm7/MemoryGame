@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../../sass/dashboard-styles/dashboard.scss";
 import StartComponent from "../StartComponent";
+import useUserCurrentDataState from "../../store/userCurrentDataStore";
 
 const Dashboard: React.FC = () => {
 	const [isStartComponentOpen, setIsStartComponentOpen] = useState<boolean>(true);

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../sass/start-component.scss";
 import Button from "./shared-components/Button";
+import useUserCurrentDataState from "../store/userCurrentDataStore";
 
 interface StartComponentProps {
 	isOpen: boolean;
@@ -9,6 +10,12 @@ interface StartComponentProps {
 
 const StartComponent: React.FC<StartComponentProps> = ({ isOpen, startGame }: StartComponentProps) => {
 	const [isFocusDifficultyLevel, setIsFocusDifficultyLevel] = useState<string | null>(null);
+	const {
+		userCurrentName,
+		setUserCurrentName,
+		// difficultyLevel,
+		// setDifficultyLevel,
+	} = useUserCurrentDataState();
 
 	return (
 		<div>
@@ -18,7 +25,12 @@ const StartComponent: React.FC<StartComponentProps> = ({ isOpen, startGame }: St
 						<div className='start-component__container'>
 							<div className='start-component__user-name-container containers'>
 								<div className='start-component__short-description'>Sign your name:</div>
-								<input type='text' className='input' />
+								<input
+									type='text'
+									className='input'
+									value={userCurrentName}
+									onChange={e => setUserCurrentName(e.target.value)}
+								/>
 							</div>
 							<div className='start-component__difficulty-level-container containers'>
 								<div className='start-component__short-description'>Select difficulty level:</div>
