@@ -10,7 +10,7 @@ interface userCurrentDataState {
 	setDifficultyLevel: (level: string) => void;
 	incrementMoves: () => void;
 	guessCard: (cardId: number) => void;
-	resetGame: () => void;
+	restartGame: () => void;
 }
 
 const useUserCurrentDataState = create<userCurrentDataState>(set => ({
@@ -24,7 +24,7 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 	incrementMoves: () => set(state => ({ userCurrentMoves: state.userCurrentMoves + 1 })),
 	guessCard: cardId => set(state => ({ userCurrentGuessedCards: [...state.userCurrentGuessedCards, cardId] })),
 
-	resetGame: () =>
+	restartGame: () =>
 		set({
 			userCurrentName: "",
 			userCurrentGuessedCards: [],

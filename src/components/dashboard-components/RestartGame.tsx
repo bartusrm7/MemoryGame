@@ -1,4 +1,5 @@
 import useUserCurrentDataState from "../../store/userCurrentDataStore";
+import Button from "../shared-components/Button";
 
 const ResetGame: React.FC = () => {
 	const {
@@ -10,9 +11,13 @@ const ResetGame: React.FC = () => {
 		// setDifficultyLevel,
 		// incrementMoves,
 		// guessCard,
-		// resetGame,
+		// restartGame,
 	} = useUserCurrentDataState();
 
-	return <div></div>;
+	return (
+		<div>
+			<Button title='Restart Game' />
+		</div>
+	);
 };
 export default ResetGame;
