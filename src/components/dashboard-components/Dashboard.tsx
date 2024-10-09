@@ -3,6 +3,7 @@ import "../../sass/dashboard-styles/dashboard.scss";
 import StartComponent from "../StartComponent";
 import ResetGame from "./RestartGame";
 import UserDataSelected from "./UserDataSelected";
+import GameBoard from "./GameBoard";
 
 const Dashboard: React.FC = () => {
 	const [isStartComponentOpen, setIsStartComponentOpen] = useState<boolean>(true);
@@ -14,8 +15,9 @@ const Dashboard: React.FC = () => {
 	return (
 		<div>
 			<StartComponent isOpen={isStartComponentOpen} startGame={handleShowTheGame} />
-			<ResetGame resetToStartComponent={handleShowTheGame} />
 			<UserDataSelected />
+			<GameBoard />
+			<ResetGame resetToStartComponent={handleShowTheGame} />
 		</div>
 	);
 };

@@ -20,11 +20,26 @@
 	.containers {
 		margin: 1.5em 0;
 	}
+	button {
+		min-width: 150px;
+	}
 	&__short-description {
 		margin-bottom: 0.25em;
 	}
 	.input {
 		padding: 0.25em 0.5em;
+	}
+}
+@media (max-width: 576px) {
+	.start-component {
+		&__difficulty-level-container {
+			button {
+				margin: 0.5em auto;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
 	}
 }
 @media (min-width: 376px) {
@@ -34,12 +49,10 @@
 		}
 	}
 }
-@media (max-width: 576px) {
+@media (min-width: 992px) {
 	.start-component {
-		&__short-description {
-			button {
-				width: 150px;
-			}
+		button {
+			min-width: 180px;
 		}
 	}
 }

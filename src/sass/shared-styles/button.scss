@@ -7,15 +7,6 @@
 .active-btn {
 	background-color: cyan;
 }
-@media (max-width: 576px) {
-	.button {
-		margin: 0.25em auto;
-		width: 150px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-}
 @media (min-width: 768px) {
 	.button {
 		padding: 0.45em 0.6em;
