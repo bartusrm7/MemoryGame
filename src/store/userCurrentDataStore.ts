@@ -1,9 +1,9 @@
 import { create } from "zustand";
 
 const DIFFICULTY_LEVELS = {
-	EASY: { level: "easy", squareAmount: 20 },
-	MEDIUM: { level: "medium", squareAmount: 30 },
-	HARD: { level: "hard", squareAmount: 40 },
+	easy: { squareAmount: 20 },
+	medium: { squareAmount: 30 },
+	hard: { squareAmount: 40 },
 };
 
 interface userCurrentDataState {
@@ -33,7 +33,7 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 	setUserCurrentName: name => set({ userCurrentName: name }),
 	setDifficultyLevel: level => {
 		set({ difficultyLevel: level });
-		const squareCount = DIFFICULTY_LEVELS[level as keyof typeof DIFFICULTY_LEVELS].squareAmount;
+		const squareCount = DIFFICULTY_LEVELS[level as keyof typeof DIFFICULTY_LEVELS]?.squareAmount;
 		set({ squareToFields: squareCount });
 	},
 	incrementMoves: () => set(state => ({ userCurrentMoves: state.userCurrentMoves + 1 })),
