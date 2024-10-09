@@ -11,6 +11,7 @@ const Dashboard: React.FC = () => {
 
 	return (
 		<div>
+			TRZEBA UTWORZYC store W NASZYM STANIE ODNOSNIE TEGO JAKI USER TERAZ GRA, ILE MA RUCHOW ITD ITD
 			<StartComponent isOpen={isStartComponentOpen} startGame={handleShowTheGame} />
 		</div>
 	);

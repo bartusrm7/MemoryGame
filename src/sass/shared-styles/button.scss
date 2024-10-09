@@ -3,9 +3,9 @@
 	padding: 0.35em 0.5em;
 	margin: 0.25em;
 	cursor: pointer;
-	&:focus {
-		background-color: rgb(67, 168, 199);
-	}
+}
+.active-btn {
+	background-color: cyan;
 }
 @media (max-width: 576px) {
 	.button {

@@ -23,17 +23,17 @@ const StartComponent: React.FC<StartComponentProps> = ({ isOpen, startGame }: St
 							<div className='start-component__difficulty-level-container containers'>
 								<div className='start-component__short-description'>Select difficulty level:</div>
 								<Button
-									focus={isFocusDifficultyLevel === "Sports"}
+									isActive={isFocusDifficultyLevel === "Sports"}
 									title='Sports'
 									message=' (easy)'
 									onClick={() => setIsFocusDifficultyLevel("Sports")}></Button>
 								<Button
-									focus={isFocusDifficultyLevel === "Cars"}
+									isActive={isFocusDifficultyLevel === "Cars"}
 									title='Cars'
 									message=' (medium)'
 									onClick={() => setIsFocusDifficultyLevel("Cars")}></Button>
 								<Button
-									focus={isFocusDifficultyLevel === "Languages"}
+									isActive={isFocusDifficultyLevel === "Languages"}
 									title='Languages'
 									message=' (hard)'
 									onClick={() => setIsFocusDifficultyLevel("Languages")}></Button>
