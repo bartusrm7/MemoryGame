@@ -6,8 +6,9 @@ const UserDataSelected: React.FC = () => {
 	return (
 		<div>
 			<div className='user-data-selected'>
-                
-            </div>
+				<div className='user-data-selected__user-name'>Welcome, {userCurrentName}! Let's play the game!</div>
+				<div className='user-data-selected__difficulty-container'></div>
+			</div>
 		</div>
 	);
 };

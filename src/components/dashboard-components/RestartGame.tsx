@@ -3,7 +3,7 @@ import Button from "../shared-components/Button";
 
 const ResetGame: React.FC = () => {
 	const {
-		userCurrentName,
+		// userCurrentName,
 		// userCurrentGuessedCards,
 		// difficultyLevel,
 		// userCurrentMoves,
@@ -11,12 +11,17 @@ const ResetGame: React.FC = () => {
 		// setDifficultyLevel,
 		// incrementMoves,
 		// guessCard,
-		// restartGame,
+		restartGame,
 	} = useUserCurrentDataState();
 
 	return (
 		<div>
-			<Button title='Restart Game' />
+			<Button
+				title='Restart Game'
+				onClick={() => {
+					restartGame();
+				}}
+			/>
 		</div>
 	);
 };
