@@ -13,7 +13,7 @@ const Dashboard: React.FC = () => {
 	};
 
 	return (
-		<div>
+		<div className='dashboard'>
 			<StartComponent isOpen={isStartComponentOpen} startGame={handleShowTheGame} />
 			<UserDataSelected />
 			<GameBoard />
