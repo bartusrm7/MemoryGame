@@ -13,6 +13,12 @@ interface userCurrentDataState {
 	restartGame: () => void;
 }
 
+const DIFFICULTY_LEVELS = {
+	EASY: "easy",
+	MEDIUM: "medium",
+	HARD: "hard",
+};
+
 const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 	userCurrentName: "",
 	userCurrentGuessedCards: [],
