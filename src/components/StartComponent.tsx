@@ -10,12 +10,7 @@ interface StartComponentProps {
 
 const StartComponent: React.FC<StartComponentProps> = ({ isOpen, startGame }: StartComponentProps) => {
 	const [isFocusDifficultyLevel, setIsFocusDifficultyLevel] = useState<string | null>(null);
-	const {
-		userCurrentName,
-		setUserCurrentName,
-		// difficultyLevel,
-		// setDifficultyLevel,
-	} = useUserCurrentDataState();
+	const { userCurrentName, setUserCurrentName, setDifficultyLevel } = useUserCurrentDataState();
 
 	return (
 		<div>
@@ -38,21 +33,33 @@ const StartComponent: React.FC<StartComponentProps> = ({ isOpen, startGame }: St
 									isActive={isFocusDifficultyLevel === "Sports"}
 									title='Sports'
 									message=' (easy)'
-									onClick={() => setIsFocusDifficultyLevel("Sports")}></Button>
+									onClick={() => {
+										setIsFocusDifficultyLevel("Sports");
+										setDifficultyLevel("Easy");
+									}}
+								/>
 								<Button
 									isActive={isFocusDifficultyLevel === "Cars"}
 									title='Cars'
 									message=' (medium)'
-									onClick={() => setIsFocusDifficultyLevel("Cars")}></Button>
+									onClick={() => {
+										setIsFocusDifficultyLevel("Sports");
+										setDifficultyLevel("Medium");
+									}}
+								/>
 								<Button
 									isActive={isFocusDifficultyLevel === "Languages"}
 									title='Languages'
 									message=' (hard)'
-									onClick={() => setIsFocusDifficultyLevel("Languages")}></Button>
+									onClick={() => {
+										setIsFocusDifficultyLevel("Sports");
+										setDifficultyLevel("Hard");
+									}}
+								/>
 							</div>
 							<div className='start-component__accept-button-container containers'>
 								<div className='start-component__short-description'>Press button to start the game.</div>
-								<Button title="Let's start the game!" onClick={startGame}></Button>
+								<Button title="Let's start the game!" onClick={startGame} />
 							</div>
 						</div>
 					</div>
