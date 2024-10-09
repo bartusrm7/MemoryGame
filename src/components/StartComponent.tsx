@@ -12,6 +12,14 @@ const StartComponent: React.FC<StartComponentProps> = ({ isOpen, startGame }: St
 	const [isFocusDifficultyLevel, setIsFocusDifficultyLevel] = useState<string | null>(null);
 	const { userCurrentName, setUserCurrentName, setDifficultyLevel } = useUserCurrentDataState();
 
+	const handleDidNotSelected = () => {
+		if (!userCurrentName || !userCurrentName.trim()) {
+			return;
+		} else {
+			startGame();
+		}
+	};
+
 	return (
 		<div>
 			{isOpen && (
@@ -59,7 +67,7 @@ const StartComponent: React.FC<StartComponentProps> = ({ isOpen, startGame }: St
 							</div>
 							<div className='start-component__accept-button-container containers'>
 								<div className='start-component__short-description'>Press button to start the game.</div>
-								<Button title="Let's start the game!" onClick={startGame} />
+								<Button title="Let's start the game!" onClick={handleDidNotSelected} />
 							</div>
 						</div>
 					</div>
