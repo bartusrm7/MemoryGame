@@ -1,18 +1,12 @@
 import useUserCurrentDataState from "../../store/userCurrentDataStore";
 import Button from "../shared-components/Button";
 
-const ResetGame: React.FC = () => {
-	const {
-		// userCurrentName,
-		// userCurrentGuessedCards,
-		// difficultyLevel,
-		// userCurrentMoves,
-		// setUserCurrentName,
-		// setDifficultyLevel,
-		// incrementMoves,
-		// guessCard,
-		restartGame,
-	} = useUserCurrentDataState();
+interface RestartGameProps {
+	resetToStartComponent: () => void;
+}
+
+const ResetGame: React.FC<RestartGameProps> = ({ resetToStartComponent }: RestartGameProps) => {
+	const { restartGame } = useUserCurrentDataState();
 
 	return (
 		<div>
@@ -20,6 +14,7 @@ const ResetGame: React.FC = () => {
 				title='Restart Game'
 				onClick={() => {
 					restartGame();
+					resetToStartComponent();
 				}}
 			/>
 		</div>

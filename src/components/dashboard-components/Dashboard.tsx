@@ -14,7 +14,7 @@ const Dashboard: React.FC = () => {
 	return (
 		<div>
 			<StartComponent isOpen={isStartComponentOpen} startGame={handleShowTheGame} />
-			<ResetGame />
+			<ResetGame resetToStartComponent={handleShowTheGame} />
 			<UserDataSelected />
 		</div>
 	);

@@ -35,7 +35,7 @@ const StartComponent: React.FC<StartComponentProps> = ({ isOpen, startGame }: St
 									message=' (easy)'
 									onClick={() => {
 										setIsFocusDifficultyLevel("Sports");
-										setDifficultyLevel("Easy");
+										setDifficultyLevel("easy");
 									}}
 								/>
 								<Button
@@ -43,8 +43,8 @@ const StartComponent: React.FC<StartComponentProps> = ({ isOpen, startGame }: St
 									title='Cars'
 									message=' (medium)'
 									onClick={() => {
-										setIsFocusDifficultyLevel("Sports");
-										setDifficultyLevel("Medium");
+										setIsFocusDifficultyLevel("Cars");
+										setDifficultyLevel("medium");
 									}}
 								/>
 								<Button
@@ -52,8 +52,8 @@ const StartComponent: React.FC<StartComponentProps> = ({ isOpen, startGame }: St
 									title='Languages'
 									message=' (hard)'
 									onClick={() => {
-										setIsFocusDifficultyLevel("Sports");
-										setDifficultyLevel("Hard");
+										setIsFocusDifficultyLevel("Languages");
+										setDifficultyLevel("hard");
 									}}
 								/>
 							</div>
