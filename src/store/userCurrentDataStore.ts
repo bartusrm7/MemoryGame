@@ -1,34 +1,44 @@
 import { create } from "zustand";
 
+const DIFFICULTY_LEVELS = {
+	EASY: { level: "easy", squareAmount: 20 },
+	MEDIUM: { level: "medium", squareAmount: 30 },
+	HARD: { level: "hard", squareAmount: 40 },
+};
+
 interface userCurrentDataState {
 	userCurrentName: string;
 	userCurrentGuessedCards: number[];
 	difficultyLevel: string;
 	userCurrentMoves: number;
+	currentTimer: Date;
+	squareToFields: number;
 
 	setUserCurrentName: (name: string) => void;
 	setDifficultyLevel: (level: string) => void;
 	incrementMoves: () => void;
 	guessCard: (cardId: number) => void;
+	setSquareToFields: (amount: number) => void;
 	restartGame: () => void;
 }
-
-// const DIFFICULTY_LEVELS = {
-// 	EASY: "easy",
-// 	MEDIUM: "medium",
-// 	HARD: "hard",
-// };
 
 const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 	userCurrentName: "",
 	userCurrentGuessedCards: [],
 	difficultyLevel: "",
 	userCurrentMoves: 0,
+	currentTimer: new Date(),
+	squareToFields: 0,
 
 	setUserCurrentName: name => set({ userCurrentName: name }),
-	setDifficultyLevel: level => set({ difficultyLevel: level }),
+	setDifficultyLevel: level => {
+		set({ difficultyLevel: level });
+		const squareCount = DIFFICULTY_LEVELS[level as keyof typeof DIFFICULTY_LEVELS].squareAmount;
+		set({ squareToFields: squareCount });
+	},
 	incrementMoves: () => set(state => ({ userCurrentMoves: state.userCurrentMoves + 1 })),
 	guessCard: cardId => set(state => ({ userCurrentGuessedCards: [...state.userCurrentGuessedCards, cardId] })),
+	setSquareToFields: amount => set(state => ({ ...state, squareToFields: amount })),
 
 	restartGame: () =>
 		set({
@@ -36,6 +46,7 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 			userCurrentGuessedCards: [],
 			difficultyLevel: "",
 			userCurrentMoves: 0,
+			squareToFields: 0,
 		}),
 }));
 
