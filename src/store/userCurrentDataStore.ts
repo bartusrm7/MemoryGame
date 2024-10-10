@@ -1,11 +1,14 @@
 import { create } from "zustand";
+import EASY_PHOTOS from "../components/dashboard-components/fields-difficulties-components/Easy";
+import MEDIUM_PHOTOS from "../components/dashboard-components/fields-difficulties-components/Medium";
+import HARD_PHOTOS from "../components/dashboard-components/fields-difficulties-components/Hard";
 
 const DIFFICULTY_LEVELS = {
-	easy: { squareAmount: 20 },
-	medium: { squareAmount: 30 },
-	hard: { squareAmount: 40 },
+	easy: { squareAmount: 20, images: EASY_PHOTOS },
+	medium: { squareAmount: 30, images: MEDIUM_PHOTOS },
+	hard: { squareAmount: 40, images: HARD_PHOTOS },
 };
-
+console.log(EASY_PHOTOS);
 interface userCurrentDataState {
 	userCurrentName: string;
 	userCurrentGuessedCards: number[];
@@ -13,6 +16,7 @@ interface userCurrentDataState {
 	userCurrentMoves: number;
 	currentTimer: Date;
 	squareToFields: number[];
+	photosToFields: string[];
 
 	setUserCurrentName: (name: string) => void;
 	setDifficultyLevel: (level: string) => void;
@@ -29,15 +33,18 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 	userCurrentMoves: 0,
 	currentTimer: new Date(),
 	squareToFields: [],
+	photosToFields: [],
 
 	setUserCurrentName: name => set({ userCurrentName: name }),
 	setDifficultyLevel: level => {
 		set({ difficultyLevel: level });
 		const squareCount = DIFFICULTY_LEVELS[level as keyof typeof DIFFICULTY_LEVELS]?.squareAmount;
+		const squarePhotos = DIFFICULTY_LEVELS[level as keyof typeof DIFFICULTY_LEVELS]?.images;
 
-		if (squareCount) {
+		if (squareCount && squarePhotos) {
 			const squareArray = Array.from({ length: squareCount }, (_, i) => i + 1);
 			set({ squareToFields: squareArray });
+			set({ photosToFields: squarePhotos });
 		}
 	},
 	incrementMoves: () => set(state => ({ userCurrentMoves: state.userCurrentMoves + 1 })),
@@ -50,6 +57,7 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 			difficultyLevel: "",
 			userCurrentMoves: 0,
 			squareToFields: [],
+			photosToFields: [],
 		}),
 }));
 

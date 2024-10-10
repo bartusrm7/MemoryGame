@@ -1,12 +1,14 @@
 const EASY_PHOTOS = [
-	{ image: "../../assets/Zrzut ekranu 2023-12-27 130639.png" },
-	{ image: "" },
-	{ image: "" },
-	{ image: "" },
-	{ image: "" },
-	{ image: "" },
-	{ image: "" },
-	{ image: "" },
-	{ image: "" },
+	"../../assets/Zrzut ekranu 2023-12-27 130639.png",
+	"../../assets/Zrzut ekranu 2023-12-27 130639.png",
+	"../../assets/Zrzut ekranu 2023-12-27 130639.png",
+	"../../assets/Zrzut ekranu 2023-12-27 130639.png",
+	"../../assets/Zrzut ekranu 2023-12-27 130639.png",
+	"../../assets/Zrzut ekranu 2023-12-27 130639.png",
+	"../../assets/Zrzut ekranu 2023-12-27 130639.png",
+	"../../assets/Zrzut ekranu 2023-12-27 130639.png",
+	"../../assets/Zrzut ekranu 2023-12-27 130639.png",
+	"../../assets/Zrzut ekranu 2023-12-27 130639.png",
 ];
+
 export default EASY_PHOTOS;

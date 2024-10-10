@@ -10,8 +10,8 @@ const Fields: React.FC<FieldsProps> = ({ image }: FieldsProps) => {
 
 	return (
 		<div className='fields'>
-			{squareToFields.map(square => (
-				<div className='square'>
+			{squareToFields.map((square, index) => (
+				<div className='square' key={index}>
 					<img src={image} />
 					{square}
 				</div>
