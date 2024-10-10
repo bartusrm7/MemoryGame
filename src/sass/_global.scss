@@ -10,6 +10,15 @@ $global-font: "Oswald", sans-serif;
 $main-page-gradient-color: background
 	linear-gradient(90deg, rgb(33, 24, 49) 0%, rgb(24, 26, 61) 26%, rgb(37, 23, 58) 77%, rgb(30, 28, 56) 100%);
 $main-letters-color: #d5e0f0;
+$back-side-card: background
+	linear-gradient(
+		27deg,
+		rgba(15, 29, 31, 1) 0%,
+		rgba(113, 251, 255, 1) 28%,
+		rgba(149, 97, 202, 1) 47%,
+		rgba(52, 84, 84, 1) 68%,
+		rgba(28, 131, 135, 1) 95%
+	);
 
 body {
 	background: $main-page-gradient-color;

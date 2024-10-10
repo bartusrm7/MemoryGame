@@ -1,11 +1,12 @@
 @import "./global";
 .start-component {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	right: 0;
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.95);
+	z-index: 10;
 	&__main-container {
 		height: 100%;
 		display: flex;

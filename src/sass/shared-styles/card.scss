@@ -1,1 +1,20 @@
 @import "../global";
+.card {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: auto;
+	grid-gap: 1em;
+	&__main-container {
+	}
+	&__container {
+		position: relative;
+		object-fit: cover;
+	}
+	&__front-side-view {
+		width: 100px;
+		height: 100px;
+	}
+	&__back-side-view {
+		background-color: $back-side-card;
+	}
+}
