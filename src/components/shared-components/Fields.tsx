@@ -1,16 +1,21 @@
+import "../../sass/shared-styles/fields.scss";
 import useUserCurrentDataState from "../../store/userCurrentDataStore";
 
 interface FieldsProps {
-	id: number[];
 	image?: string;
 }
 
-const Fields: React.FC<FieldsProps> = ({ id, image }: FieldsProps) => {
+const Fields: React.FC<FieldsProps> = ({ image }: FieldsProps) => {
 	const { squareToFields } = useUserCurrentDataState();
 
 	return (
 		<div className='fields'>
-			<img src={image} alt={`Fields ${id}`} />
+			{squareToFields.map(square => (
+				<div className='square'>
+					<img src={image} />
+					{square}
+				</div>
+			))}
 		</div>
 	);
 };

@@ -4,7 +4,7 @@ import StartComponent from "../StartComponent";
 import ResetGame from "./RestartGame";
 import UserDataSelected from "./UserDataSelected";
 import GameBoard from "./GameBoard";
-import FieldsContainer from "./FieldsContainer";
+import Fields from "../shared-components/Fields";
 
 const Dashboard: React.FC = () => {
 	const [isStartComponentOpen, setIsStartComponentOpen] = useState<boolean>(true);
@@ -18,7 +18,7 @@ const Dashboard: React.FC = () => {
 			<StartComponent isOpen={isStartComponentOpen} startGame={handleShowTheGame} />
 			<UserDataSelected />
 			<GameBoard />
-			<FieldsContainer />
+			<Fields />
 			<ResetGame resetToStartComponent={handleShowTheGame} />
 		</div>
 	);

@@ -1,6 +1,10 @@
 @import "../global";
 .fields {
 	display: grid;
-	grid-template-columns: repeat(1fr, 5);
-	grid-template-rows: repeat(1fr, 10);
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: auto;
+}
+.square {
+	background-color: rgb(218, 53, 53);
+	background-image: url('../../assets/Zrzut\ ekranu\ 2023-12-27\ 130639.png');
 }
