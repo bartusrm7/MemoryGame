@@ -1,20 +1,81 @@
 @import "../global";
 .card {
+	margin: 2em auto;
+	width: min-content;
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: auto;
-	grid-gap: 1em;
+	grid-gap: 0.75em;
 	&__main-container {
+		margin: auto;
+		width: 45px;
+		height: 45px;
+		perspective: 1000px;
+		cursor: pointer;
 	}
 	&__container {
 		position: relative;
-		object-fit: cover;
+		width: 100%;
+		height: 100%;
+		transition: transform 0.3s;
+		transform-style: preserve-3d;
 	}
-	&__front-side-view {
-		width: 100px;
-		height: 100px;
+	&__back-side,
+	&__front-side {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		backface-visibility: hidden;
 	}
-	&__back-side-view {
-		background-color: $back-side-card;
+	&__front-side {
+		transform: rotateY(180deg);
+	}
+	&__back-side {
+		background: $back-side-card;
+		transform: rotateY(0deg);
+	}
+	.front-back-side-card {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+	.rotate {
+		transform: rotateY(180deg);
+	}
+}
+@media (min-width: 376px) {
+	.card {
+		margin: 2em auto;
+		&__main-container {
+			margin: auto;
+			width: 60px;
+			height: 60px;
+		}
+	}
+}
+@media (min-width: 576px) {
+	.card {
+		grid-gap: 1em;
+		&__main-container {
+			width: 75px;
+			height: 75px;
+		}
+	}
+}
+@media (min-width: 768px) {
+	.card {
+		&__main-container {
+			width: 90px;
+			height: 90px;
+		}
+	}
+}
+@media (min-width: 1200px) {
+	.card {
+		grid-gap: 1.25em;
+		&__main-container {
+			width: 120px;
+			height: 120px;
+		}
 	}
 }
