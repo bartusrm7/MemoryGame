@@ -8,7 +8,7 @@ const DIFFICULTY_LEVELS = {
 	medium: { squareAmount: 30, images: MEDIUM_PHOTOS },
 	hard: { squareAmount: 40, images: HARD_PHOTOS },
 };
-console.log(EASY_PHOTOS);
+
 interface userCurrentDataState {
 	userCurrentName: string;
 	userCurrentGuessedCards: number[];
