@@ -19,7 +19,7 @@ import img18 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
 import img19 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
 import img20 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
 
-const EASY_PHOTOS = [
+const HARD_PHOTOS = [
 	img1,
 	img2,
 	img3,
@@ -61,4 +61,4 @@ const EASY_PHOTOS = [
 	img19,
 	img20,
 ];
-export default EASY_PHOTOS;
+export default HARD_PHOTOS;

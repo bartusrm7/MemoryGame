@@ -14,16 +14,19 @@ const Card: React.FC = () => {
 
 		if (spreadWholeRotatedCards[index]) {
 			flippedCards.push(index);
-			console.log(flippedCards);
 		}
 		if (flippedCards.length === 2) {
+			const firstPair = photosToFields[flippedCards[0]];
+			const secondPair = photosToFields[flippedCards[1]];
+
+			if (firstPair === secondPair) {
+				console.log("kokosik");
+			}
+
 			setFlippedCards([]);
 			setTimeout(() => {
 				setIsCardRotated(Array(photosToFields.length).fill(false));
 			}, 300);
-		}
-		if (flippedCards[0] === flippedCards[1]) {
-			console.log("kokosik");
 		}
 	};
 
