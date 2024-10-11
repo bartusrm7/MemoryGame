@@ -15,14 +15,12 @@ interface userCurrentDataState {
 	difficultyLevel: string;
 	userCurrentMoves: number;
 	currentTimer: Date;
-	squareToFields: number[];
 	photosToFields: string[];
 
 	setUserCurrentName: (name: string) => void;
 	setDifficultyLevel: (level: string) => void;
 	incrementMoves: () => void;
 	guessCard: (cardId: number) => void;
-	setSquareToFields: (amount: number) => void;
 	restartGame: () => void;
 }
 
@@ -32,31 +30,26 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 	difficultyLevel: "",
 	userCurrentMoves: 0,
 	currentTimer: new Date(),
-	squareToFields: [],
 	photosToFields: [],
 
 	setUserCurrentName: name => set({ userCurrentName: name }),
 	setDifficultyLevel: level => {
 		set({ difficultyLevel: level });
-		const squareCount = DIFFICULTY_LEVELS[level as keyof typeof DIFFICULTY_LEVELS]?.squareAmount;
 		const squarePhotos = DIFFICULTY_LEVELS[level as keyof typeof DIFFICULTY_LEVELS]?.images;
+		const randomSquarePhotos = squarePhotos.sort(() => Math.random() - 0.7)
 
-		if (squareCount && squarePhotos) {
-			const squareArray = Array.from({ length: squareCount }, (_, i) => i + 1);
-			set({ squareToFields: squareArray });
-			set({ photosToFields: squarePhotos });
+		if (squarePhotos) {
+			set({ photosToFields: randomSquarePhotos });
 		}
 	},
 	incrementMoves: () => set(state => ({ userCurrentMoves: state.userCurrentMoves + 1 })),
 	guessCard: cardId => set(state => ({ userCurrentGuessedCards: [...state.userCurrentGuessedCards, cardId] })),
-	setSquareToFields: amount => set(state => ({ squareToFields: [...state.squareToFields, amount] })),
 	restartGame: () =>
 		set({
 			userCurrentName: "",
 			userCurrentGuessedCards: [],
 			difficultyLevel: "",
 			userCurrentMoves: 0,
-			squareToFields: [],
 			photosToFields: [],
 		}),
 }));

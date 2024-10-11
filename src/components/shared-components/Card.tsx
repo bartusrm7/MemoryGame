@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../sass/shared-styles/card.scss";
 import useUserCurrentDataState from "../../store/userCurrentDataStore";
 
@@ -11,6 +11,10 @@ const Card: React.FC = () => {
 		spreadWholeRotatedCards[index] = !spreadWholeRotatedCards[index];
 		setIsCardRotated(spreadWholeRotatedCards);
 	};
+
+	useEffect(() => {
+		setIsCardRotated(Array(photosToFields.length).fill(false));
+	}, [photosToFields]);
 
 	return (
 		<div className='card'>
