@@ -3,7 +3,8 @@ import "../../sass/shared-styles/card.scss";
 import useUserCurrentDataState from "../../store/userCurrentDataStore";
 
 const Card: React.FC = () => {
-	const { userCurrentGuessedCards, photosToFields, incrementMoves } = useUserCurrentDataState();
+	const { userCurrentGuessedCards, photosToFields, incrementMoves, timeOfTheGame, setTimeOfTheGame } =
+		useUserCurrentDataState();
 	const [isCardRotated, setIsCardRotated] = useState<boolean[]>(Array(photosToFields.length).fill(false));
 	const [flippedCards, setFlippedCards] = useState<number[]>([]);
 	const [isMatchedCards, setIsMatchedCards] = useState<string[]>([]);
@@ -14,7 +15,7 @@ const Card: React.FC = () => {
 		setIsCardRotated(spreadWholeRotatedCards);
 
 		if (spreadWholeRotatedCards[index]) {
-			setFlippedCards(prevState => [...prevState, index]);
+			flippedCards.push(index);
 		}
 		if (flippedCards.length === 2) {
 			const firstPair = photosToFields[flippedCards[0]];
@@ -22,7 +23,6 @@ const Card: React.FC = () => {
 
 			if (firstPair === secondPair) {
 				userCurrentGuessedCards.push(firstPair, secondPair);
-				setIsMatchedCards(prevState => [...prevState, firstPair, secondPair]);
 				//NAPISAĆ KOD DO TEGO, ABY MOŻNA BYŁO ZOSTAWIAĆ KARTY OTWARTE JEŻELI SĄ ONE MATCH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			}
 			incrementMoves();
@@ -34,6 +34,14 @@ const Card: React.FC = () => {
 	};
 
 	useEffect(() => {
+		const timerInterval = setInterval(() => {
+			setTimeOfTheGame(timeOfTheGame);
+		}, 1000);
+
+		return () => clearInterval(timerInterval);
+	}, []);
+
+	useEffect(() => {
 		setIsCardRotated(Array(photosToFields.length).fill(false));
 	}, [photosToFields, isMatchedCards]);
 
@@ -42,7 +50,7 @@ const Card: React.FC = () => {
 			{photosToFields.map((photo, index) => (
 				<div key={index} className='card__main-container' onClick={() => handleRotateParticularCard(index)}>
 					<div className={`card__container ${isCardRotated[index] ? "rotate" : ""}`}>
-						<div className={`card__front-side ${isMatchedCards.includes(photo) ? "koko" : ""}`}>
+						<div className='card__front-side'>
 							<img className='card__front-side-view front-back-side-card' src={photo} alt={`Photos number ${index}`} />
 						</div>
 						<div className='card__back-side'>

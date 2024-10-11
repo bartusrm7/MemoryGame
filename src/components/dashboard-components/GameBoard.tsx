@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react";
 import "../../sass/dashboard-styles/game-board.scss";
 import useUserCurrentDataState from "../../store/userCurrentDataStore";
 
 const GameBoard: React.FC = () => {
-	const { userCurrentGuessedCards, difficultyLevel, userCurrentMoves, timeOfTheGame } =
-		useUserCurrentDataState();
+	const { userCurrentGuessedCards, difficultyLevel, userCurrentMoves, timeOfTheGame } = useUserCurrentDataState();
 
 	return (
 		<div>
@@ -26,7 +24,9 @@ const GameBoard: React.FC = () => {
 					<div className='game-board__container'>
 						<div className='game-board__short-description'>Time game:</div>
 						<div className='game-board__user-results'>
-							{timeOfTheGame.minutes}:{timeOfTheGame.seconds}:{timeOfTheGame.hundredths}
+							{timeOfTheGame.minutes < 10 ? `0${timeOfTheGame.minutes}` : timeOfTheGame.minutes}:
+							{timeOfTheGame.seconds < 10 ? `0${timeOfTheGame.seconds}` : timeOfTheGame.seconds}:
+							{timeOfTheGame.hundredths < 10 ? `0${timeOfTheGame.hundredths}` : timeOfTheGame.hundredths}
 						</div>
 					</div>
 				</div>
