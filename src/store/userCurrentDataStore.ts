@@ -4,9 +4,9 @@ import MEDIUM_PHOTOS from "../components/dashboard-components/fields-difficultie
 import HARD_PHOTOS from "../components/dashboard-components/fields-difficulties-components/Hard";
 
 const DIFFICULTY_LEVELS = {
-	easy: { squareAmount: 20, images: EASY_PHOTOS },
-	medium: { squareAmount: 30, images: MEDIUM_PHOTOS },
-	hard: { squareAmount: 40, images: HARD_PHOTOS },
+	easy: { images: EASY_PHOTOS },
+	medium: { images: MEDIUM_PHOTOS },
+	hard: { images: HARD_PHOTOS },
 };
 
 interface userCurrentDataState {
@@ -15,7 +15,7 @@ interface userCurrentDataState {
 	difficultyLevel: string;
 	userCurrentMoves: number;
 	currentTimer: Date;
-	photosToFields: string[];
+	photosToFields: { id: number; photo: string }[];
 
 	setUserCurrentName: (name: string) => void;
 	setDifficultyLevel: (level: string) => void;
@@ -36,7 +36,7 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 	setDifficultyLevel: level => {
 		set({ difficultyLevel: level });
 		const squarePhotos = DIFFICULTY_LEVELS[level as keyof typeof DIFFICULTY_LEVELS]?.images;
-		const randomSquarePhotos = squarePhotos.sort(() => Math.random() - 0.7)
+		const randomSquarePhotos = squarePhotos.sort(() => Math.random() - 0.7);
 
 		if (squarePhotos) {
 			set({ photosToFields: randomSquarePhotos });

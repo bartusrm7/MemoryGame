@@ -37,7 +37,11 @@ const Card: React.FC = () => {
 				<div key={index} className='card__main-container' onClick={() => handleRotateParticularCard(index)}>
 					<div className={`card__container ${isCardRotated[index] ? "rotate" : ""}`}>
 						<div className='card__front-side'>
-							<img className='card__front-side-view front-back-side-card' src={photo} alt={`Photos number ${index}`} />
+							<img
+								className='card__front-side-view front-back-side-card'
+								src={photo.photo}
+								alt={`Photos number ${index}`}
+							/>
 						</div>
 						<div className='card__back-side'>
 							<div className='card__back-side-view front-back-side-card'></div>
