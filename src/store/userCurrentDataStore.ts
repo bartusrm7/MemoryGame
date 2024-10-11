@@ -15,14 +15,19 @@ interface userCurrentDataState {
 	userCurrentPoints: number;
 	difficultyLevel: string;
 	userCurrentMoves: number;
-	currentTimer: Date;
 	photosToFields: string[];
+	timeOfTheGame: {
+		minutes: number;
+		seconds: number;
+		hundredths: number;
+	};
 
 	setUserCurrentName: (name: string) => void;
 	setDifficultyLevel: (level: string) => void;
 	setUserCurrentPoints: (point: number) => void;
 	incrementMoves: () => void;
 	guessCard: (cardName: string) => void;
+	setTimeOfTheGame: (time: { minutes: number; seconds: number; hundredths: number }) => void;
 	restartGame: () => void;
 }
 
@@ -32,8 +37,12 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 	userCurrentPoints: 0,
 	difficultyLevel: "",
 	userCurrentMoves: 0,
-	currentTimer: new Date(),
 	photosToFields: [],
+	timeOfTheGame: {
+		minutes: 0,
+		seconds: 0,
+		hundredths: 0,
+	},
 
 	setUserCurrentName: name => set({ userCurrentName: name }),
 	setDifficultyLevel: level => {
@@ -48,6 +57,14 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 	setUserCurrentPoints: () => set(state => ({ userCurrentPoints: state.userCurrentGuessedCards.length })),
 	incrementMoves: () => set(state => ({ userCurrentMoves: state.userCurrentMoves + 1 })),
 	guessCard: cardName => set(state => ({ userCurrentGuessedCards: [...state.userCurrentGuessedCards, cardName] })),
+	setTimeOfTheGame: time => {
+		set(state => ({
+			timeOfTheGame: {
+				...state.timeOfTheGame,
+				time,
+			},
+		}));
+	},
 	restartGame: () =>
 		set({
 			userCurrentName: "",
@@ -56,6 +73,11 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 			difficultyLevel: "",
 			userCurrentMoves: 0,
 			photosToFields: [],
+			timeOfTheGame: {
+				minutes: 0,
+				seconds: 0,
+				hundredths: 0,
+			},
 		}),
 }));
 

@@ -23,6 +23,7 @@ const Card: React.FC = () => {
 			if (firstPair === secondPair) {
 				userCurrentGuessedCards.push(firstPair, secondPair);
 				setIsMatchedCards(prevState => [...prevState, firstPair, secondPair]);
+				//NAPISAĆ KOD DO TEGO, ABY MOŻNA BYŁO ZOSTAWIAĆ KARTY OTWARTE JEŻELI SĄ ONE MATCH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			}
 			incrementMoves();
 			setFlippedCards([]);
@@ -48,6 +49,7 @@ const Card: React.FC = () => {
 							<div className='card__back-side-view front-back-side-card'></div>
 						</div>
 					</div>
+					<div></div>
 				</div>
 			))}
 		</div>
