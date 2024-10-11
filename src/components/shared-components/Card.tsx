@@ -3,9 +3,10 @@ import "../../sass/shared-styles/card.scss";
 import useUserCurrentDataState from "../../store/userCurrentDataStore";
 
 const Card: React.FC = () => {
-	const { photosToFields } = useUserCurrentDataState();
+	const { userCurrentGuessedCards, photosToFields, incrementMoves } = useUserCurrentDataState();
 	const [isCardRotated, setIsCardRotated] = useState<boolean[]>(Array(photosToFields.length).fill(false));
 	const [flippedCards, setFlippedCards] = useState<number[]>([]);
+	const [isMatchedCards, setIsMatchedCards] = useState<string[]>([]);
 
 	const handleRotateParticularCard = (index: number) => {
 		const spreadWholeRotatedCards = [...isCardRotated];
@@ -13,16 +14,17 @@ const Card: React.FC = () => {
 		setIsCardRotated(spreadWholeRotatedCards);
 
 		if (spreadWholeRotatedCards[index]) {
-			flippedCards.push(index);
+			setFlippedCards(prevState => [...prevState, index]);
 		}
 		if (flippedCards.length === 2) {
 			const firstPair = photosToFields[flippedCards[0]];
 			const secondPair = photosToFields[flippedCards[1]];
 
 			if (firstPair === secondPair) {
-				console.log("kokosik");
+				userCurrentGuessedCards.push(firstPair, secondPair);
+				setIsMatchedCards(prevState => [...prevState, firstPair, secondPair]);
 			}
-
+			incrementMoves();
 			setFlippedCards([]);
 			setTimeout(() => {
 				setIsCardRotated(Array(photosToFields.length).fill(false));
@@ -32,14 +34,14 @@ const Card: React.FC = () => {
 
 	useEffect(() => {
 		setIsCardRotated(Array(photosToFields.length).fill(false));
-	}, [photosToFields]);
+	}, [photosToFields, isMatchedCards]);
 
 	return (
 		<div className='card'>
 			{photosToFields.map((photo, index) => (
 				<div key={index} className='card__main-container' onClick={() => handleRotateParticularCard(index)}>
 					<div className={`card__container ${isCardRotated[index] ? "rotate" : ""}`}>
-						<div className='card__front-side'>
+						<div className={`card__front-side ${isMatchedCards.includes(photo) ? "koko" : ""}`}>
 							<img className='card__front-side-view front-back-side-card' src={photo} alt={`Photos number ${index}`} />
 						</div>
 						<div className='card__back-side'>

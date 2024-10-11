@@ -1,1 +1,9 @@
-@import '../global'
+@import "../global";
+.game-board {
+	&__container {
+		display: flex;
+	}
+    &__short-description {
+        margin-right: 0.5em;
+    }
+}
