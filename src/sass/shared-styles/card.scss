@@ -28,6 +28,7 @@
 		border-radius: 5px;
 	}
 	&__front-side {
+		background-color: #fff;
 		transform: rotateY(180deg);
 	}
 	&__back-side {

@@ -1,23 +1,23 @@
-import img1 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img2 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img3 from "../../../assets/react.svg";
-import img4 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img5 from "../../../assets/react.svg";
-import img6 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img7 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img8 from "../../../assets/react.svg";
-import img9 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img10 from "../../../assets/react.svg";
-import img11 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img12 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img13 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img14 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img15 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img16 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img17 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img18 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img19 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img20 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
+import img1 from "../../../assets/languages/j1.jpg";
+import img2 from "../../../assets/languages/j2.png";
+import img3 from "../../../assets/languages/j3.jpg";
+import img4 from "../../../assets/languages/j4.jpg";
+import img5 from "../../../assets/languages/j5.png";
+import img6 from "../../../assets/languages/j6.png";
+import img7 from "../../../assets/languages/j7.png";
+import img8 from "../../../assets/languages/j8.jpeg";
+import img9 from "../../../assets/languages/j9.png";
+import img10 from "../../../assets/languages/j10.jpg";
+import img11 from "../../../assets/languages/j11.png";
+import img12 from "../../../assets/languages/j12.jpg";
+import img13 from "../../../assets/languages/j13.png";
+import img14 from "../../../assets/languages/j14.png";
+import img15 from "../../../assets/languages/j15.jpeg";
+import img16 from "../../../assets/languages/j16.png";
+import img17 from "../../../assets/languages/j17.png";
+import img18 from "../../../assets/languages/j18.png";
+import img19 from "../../../assets/languages/j19.jpg";
+import img20 from "../../../assets/languages/j20.png";
 
 const HARD_PHOTOS = [
 	img1,

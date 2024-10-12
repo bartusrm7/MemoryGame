@@ -8,16 +8,13 @@ const Card: React.FC = () => {
 		photosToFields,
 		incrementMoves,
 		setTimeOfTheGame,
-		timeOfTheGame,
 		isTimerRunning,
 		setStartTimer,
 		setStopTimer,
 	} = useUserCurrentDataState();
 	const [isCardRotated, setIsCardRotated] = useState<boolean[]>(Array(photosToFields.length).fill(false));
 	const [flippedCards, setFlippedCards] = useState<number[]>([]);
-	const [isMatchedCards, setIsMatchedCards] = useState<string[]>([]);
-
-	
+	// const [isMatchedCards, setIsMatchedCards] = useState<string[]>([]);
 
 	const handleRotateParticularCard = (index: number) => {
 		const spreadWholeRotatedCards = [...isCardRotated];
@@ -27,6 +24,7 @@ const Card: React.FC = () => {
 		if (spreadWholeRotatedCards[index]) {
 			flippedCards.push(index);
 		}
+
 		if (flippedCards.length === 2) {
 			const firstPair = photosToFields[flippedCards[0]];
 			const secondPair = photosToFields[flippedCards[1]];
@@ -34,12 +32,15 @@ const Card: React.FC = () => {
 			if (firstPair === secondPair) {
 				userCurrentGuessedCards.push(firstPair, secondPair);
 				//NAPISAĆ KOD DO TEGO, ABY MOŻNA BYŁO ZOSTAWIAĆ KARTY OTWARTE JEŻELI SĄ ONE MATCH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				if (userCurrentGuessedCards.length === photosToFields.length) {
+					setStopTimer();
+				}
 			}
 			incrementMoves();
 			setFlippedCards([]);
 			setTimeout(() => {
 				setIsCardRotated(Array(photosToFields.length).fill(false));
-			}, 300);
+			}, 700);
 		}
 	};
 
@@ -52,16 +53,9 @@ const Card: React.FC = () => {
 		return () => clearInterval(timerInterval);
 	});
 
-	const handleStartTheGame = () => {
-		setStartTimer();
-	};
-	const handleStopTheGame = () => {
-		setStopTimer();
-	};
-
 	useEffect(() => {
 		setIsCardRotated(Array(photosToFields.length).fill(false));
-	}, [photosToFields, isMatchedCards]);
+	}, [photosToFields]);
 
 	return (
 		<div className='card'>
@@ -71,10 +65,10 @@ const Card: React.FC = () => {
 					className='card__main-container'
 					onClick={() => {
 						handleRotateParticularCard(index);
-						handleStartTheGame();
+						setStartTimer();
 					}}>
 					<div className={`card__container ${isCardRotated[index] ? "rotate" : ""}`}>
-						<div className='card__front-side'>
+						<div className={`card__front-side ${userCurrentGuessedCards ? "stop-rotate" : ""}`}>
 							<img className='card__front-side-view front-back-side-card' src={photo} alt={`Photos number ${index}`} />
 						</div>
 						<div className='card__back-side'>
