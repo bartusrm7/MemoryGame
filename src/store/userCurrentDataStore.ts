@@ -29,6 +29,7 @@ interface userCurrentDataState {
 	incrementMoves: () => void;
 	guessCard: (cardName: string) => void;
 	setTimeOfTheGame: (time: { minutes: number; seconds: number; hundredths: number }) => void;
+	setIsFocusDifficultyLevel: (level: string | null) => void;
 	restartGame: () => void;
 }
 
@@ -67,6 +68,7 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 			},
 		}));
 	},
+	setIsFocusDifficultyLevel: level => set(() => ({ isFocusDifficultyLevel: level })),
 	restartGame: () =>
 		set({
 			userCurrentName: "",

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../sass/start-component.scss";
 import Button from "./shared-components/Button";
 import useUserCurrentDataState from "../store/userCurrentDataStore";
@@ -9,8 +8,8 @@ interface StartComponentProps {
 }
 
 const StartComponent: React.FC<StartComponentProps> = ({ isOpen, startGame }: StartComponentProps) => {
-	const [isFocusDifficultyLevel, setIsFocusDifficultyLevel] = useState<string | null>(null);
-	const { userCurrentName, setUserCurrentName, setDifficultyLevel } = useUserCurrentDataState();
+	const { userCurrentName, setUserCurrentName, setDifficultyLevel, isFocusDifficultyLevel, setIsFocusDifficultyLevel } =
+		useUserCurrentDataState();
 
 	const handleDidNotSelected = () => {
 		if (!userCurrentName || !userCurrentName.trim()) {
