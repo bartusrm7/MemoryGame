@@ -46,11 +46,11 @@ const StartComponent: React.FC<StartComponentProps> = ({ isOpen, startGame }: St
 									}}
 								/>
 								<Button
-									isActive={isFocusDifficultyLevel === "Cars"}
-									title='Cars'
+									isActive={isFocusDifficultyLevel === "Animals"}
+									title='Animals'
 									message=' (medium)'
 									onClick={() => {
-										setIsFocusDifficultyLevel("Cars");
+										setIsFocusDifficultyLevel("Animals");
 										setDifficultyLevel("medium");
 									}}
 								/>

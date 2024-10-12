@@ -3,8 +3,16 @@ import "../../sass/shared-styles/card.scss";
 import useUserCurrentDataState from "../../store/userCurrentDataStore";
 
 const Card: React.FC = () => {
-	const { userCurrentGuessedCards, photosToFields, incrementMoves, setTimeOfTheGame, timeOfTheGame } =
-		useUserCurrentDataState();
+	const {
+		userCurrentGuessedCards,
+		photosToFields,
+		incrementMoves,
+		setTimeOfTheGame,
+		timeOfTheGame,
+		isTimerRunning,
+		setStartTimer,
+		setStopTimer,
+	} = useUserCurrentDataState();
 	const [isCardRotated, setIsCardRotated] = useState<boolean[]>(Array(photosToFields.length).fill(false));
 	const [flippedCards, setFlippedCards] = useState<number[]>([]);
 	const [isMatchedCards, setIsMatchedCards] = useState<string[]>([]);
@@ -35,10 +43,19 @@ const Card: React.FC = () => {
 
 	useEffect(() => {
 		const timerInterval = setInterval(() => {
-			setTimeOfTheGame(timeOfTheGame);
+			if (isTimerRunning) {
+				setTimeOfTheGame();
+			}
 		}, 1000);
 		return () => clearInterval(timerInterval);
 	});
+
+	const handleStartTheGame = () => {
+		setStartTimer();
+	};
+	const handleStopTheGame = () => {
+		setStopTimer();
+	};
 
 	useEffect(() => {
 		setIsCardRotated(Array(photosToFields.length).fill(false));
@@ -47,7 +64,13 @@ const Card: React.FC = () => {
 	return (
 		<div className='card'>
 			{photosToFields.map((photo, index) => (
-				<div key={index} className='card__main-container' onClick={() => handleRotateParticularCard(index)}>
+				<div
+					key={index}
+					className='card__main-container'
+					onClick={() => {
+						handleRotateParticularCard(index);
+						handleStartTheGame();
+					}}>
 					<div className={`card__container ${isCardRotated[index] ? "rotate" : ""}`}>
 						<div className='card__front-side'>
 							<img className='card__front-side-view front-back-side-card' src={photo} alt={`Photos number ${index}`} />
@@ -56,7 +79,6 @@ const Card: React.FC = () => {
 							<div className='card__back-side-view front-back-side-card'></div>
 						</div>
 					</div>
-					<div>{timeOfTheGame}</div>
 				</div>
 			))}
 		</div>

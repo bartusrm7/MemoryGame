@@ -1,21 +1,20 @@
-import img1 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img2 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img3 from "../../../assets/react.svg";
-import img4 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img5 from "../../../assets/react.svg";
-import img6 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img7 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img8 from "../../../assets/react.svg";
-import img9 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img10 from "../../../assets/react.svg";
-import img11 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img12 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img13 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img14 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img15 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
+import img1 from "../../../assets/animals/bóbr.jpg";
+import img2 from "../../../assets/animals/dzik.jpg";
+import img3 from "../../../assets/animals/jelonek.jpg";
+import img4 from "../../../assets/animals/kangur.jpg";
+import img5 from "../../../assets/animals/kot.jpg";
+import img6 from "../../../assets/animals/lew.jpg";
+import img7 from "../../../assets/animals/motyl.jpg";
+import img8 from "../../../assets/animals/żaba.jpg";
+import img9 from "../../../assets/animals/zebra.jpg";
+import img10 from "../../../assets/animals/wąż.jpg";
+import img11 from "../../../assets/animals/tygrys.jpg";
+import img12 from "../../../assets/animals/sowa.jpg";
+import img13 from "../../../assets/animals/ptak.jpg";
+import img14 from "../../../assets/animals/pies.jpg";
+import img15 from "../../../assets/animals/papuga.jpg";
 
 const MEDIUM_PHOTOS = [
-	
 	img1,
 	img2,
 	img3,
@@ -48,4 +47,3 @@ const MEDIUM_PHOTOS = [
 	img15,
 ];
 export default MEDIUM_PHOTOS;
-

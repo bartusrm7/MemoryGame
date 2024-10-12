@@ -4,6 +4,13 @@ import "../../sass/dashboard-styles/game-time.scss";
 const GameTime: React.FC = () => {
 	const { timeOfTheGame } = useUserCurrentDataState();
 
+	let minutes = timeOfTheGame / 60;
+
+	const handleFormattedTime = () => {
+		if (timeOfTheGame === 60) {
+		}
+	};
+
 	return (
 		<div className='game-time'>
 			<div className='game-time__container'>
@@ -11,8 +18,8 @@ const GameTime: React.FC = () => {
 					Time game:
 				</h3>
 				<div className='game-time__user-results'>
-					{timeOfTheGame < 10 ? `0${timeOfTheGame}` : timeOfTheGame}:
-					{timeOfTheGame < 10 ? `0${timeOfTheGame}` : timeOfTheGame}:
+					{/* {timeOfTheGame < 10 ? `0${timeOfTheGame}` : timeOfTheGame}: */}
+                    {minutes}
 					{timeOfTheGame < 10 ? `0${timeOfTheGame}` : timeOfTheGame}
 				</div>
 			</div>

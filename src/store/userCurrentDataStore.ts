@@ -31,7 +31,7 @@ interface userCurrentDataState {
 	setUserCurrentPoints: (point: number) => void;
 	incrementMoves: () => void;
 	guessCard: (cardName: string) => void;
-	setTimeOfTheGame: (time: number) => void;
+	setTimeOfTheGame: () => void;
 	setStartTimer: () => void;
 	setStopTimer: () => void;
 	setIsFocusDifficultyLevel: (level: string | null) => void;
@@ -75,9 +75,11 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 	setUserCurrentPoints: () => set(state => ({ userCurrentPoints: state.userCurrentGuessedCards.length })),
 	incrementMoves: () => set(state => ({ userCurrentMoves: state.userCurrentMoves + 1 })),
 	guessCard: cardName => set(state => ({ userCurrentGuessedCards: [...state.userCurrentGuessedCards, cardName] })),
-	setTimeOfTheGame: time => set(() => ({ timeOfTheGame: time })),
-	setStartTimer() {},
-	setStopTimer() {},
+
+	setTimeOfTheGame: () => set(state => ({ timeOfTheGame: state.timeOfTheGame + 1 })),
+	setStartTimer: () => set(() => ({ isTimerRunning: true })),
+	setStopTimer: () => set(() => ({ isTimerRunning: false })),
+
 	setIsFocusDifficultyLevel: level => set(() => ({ isFocusDifficultyLevel: level })),
 	restartGame: () =>
 		set({
