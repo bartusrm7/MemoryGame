@@ -21,6 +21,7 @@ interface userCurrentDataState {
 		seconds: number;
 		hundredths: number;
 	};
+	isFocusDifficultyLevel: string | null;
 
 	setUserCurrentName: (name: string) => void;
 	setDifficultyLevel: (level: string) => void;
@@ -43,6 +44,7 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 		seconds: 0,
 		hundredths: 0,
 	},
+	isFocusDifficultyLevel: null,
 
 	setUserCurrentName: name => set({ userCurrentName: name }),
 	setDifficultyLevel: level => {
@@ -78,6 +80,7 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 				seconds: 0,
 				hundredths: 0,
 			},
+			isFocusDifficultyLevel: null,
 		}),
 }));
 

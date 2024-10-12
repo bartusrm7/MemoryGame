@@ -21,3 +21,4 @@ const ResetGame: React.FC<RestartGameProps> = ({ resetToStartComponent }: Restar
 	);
 };
 export default ResetGame;
+0
