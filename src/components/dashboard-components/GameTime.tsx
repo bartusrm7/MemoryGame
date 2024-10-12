@@ -11,9 +11,9 @@ const GameTime: React.FC = () => {
 					Time game:
 				</h3>
 				<div className='game-time__user-results'>
-					{timeOfTheGame.minutes < 10 ? `0${timeOfTheGame.minutes}` : timeOfTheGame.minutes}:
-					{timeOfTheGame.seconds < 10 ? `0${timeOfTheGame.seconds}` : timeOfTheGame.seconds}:
-					{timeOfTheGame.hundredths < 10 ? `0${timeOfTheGame.hundredths}` : timeOfTheGame.hundredths}
+					{timeOfTheGame < 10 ? `0${timeOfTheGame}` : timeOfTheGame}:
+					{timeOfTheGame < 10 ? `0${timeOfTheGame}` : timeOfTheGame}:
+					{timeOfTheGame < 10 ? `0${timeOfTheGame}` : timeOfTheGame}
 				</div>
 			</div>
 		</div>

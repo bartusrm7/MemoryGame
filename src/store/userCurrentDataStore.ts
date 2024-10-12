@@ -16,21 +16,33 @@ interface userCurrentDataState {
 	difficultyLevel: string;
 	userCurrentMoves: number;
 	photosToFields: string[];
-	timeOfTheGame: {
-		minutes: number;
-		seconds: number;
-		hundredths: number;
-	};
+	isTimerRunning: boolean;
+	timeOfTheGame: number;
 	isFocusDifficultyLevel: string | null;
+	userHistoryGameStorage: {
+		userName: string;
+		userMoves: number;
+		gameDuration: number;
+		dataOfTheGame: Date;
+	};
 
 	setUserCurrentName: (name: string) => void;
 	setDifficultyLevel: (level: string) => void;
 	setUserCurrentPoints: (point: number) => void;
 	incrementMoves: () => void;
 	guessCard: (cardName: string) => void;
-	setTimeOfTheGame: (time: { minutes: number; seconds: number; hundredths: number }) => void;
+	setTimeOfTheGame: (time: number) => void;
+	setStartTimer: () => void;
+	setStopTimer: () => void;
 	setIsFocusDifficultyLevel: (level: string | null) => void;
 	restartGame: () => void;
+
+	setUserHistoryGameStorage: (userData: {
+		userName: string;
+		userMoves: number;
+		gameDuration: number;
+		dataOfTheGame: Date;
+	}) => void;
 }
 
 const useUserCurrentDataState = create<userCurrentDataState>(set => ({
@@ -40,12 +52,15 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 	difficultyLevel: "",
 	userCurrentMoves: 0,
 	photosToFields: [],
-	timeOfTheGame: {
-		minutes: 0,
-		seconds: 0,
-		hundredths: 0,
-	},
+	isTimerRunning: false,
+	timeOfTheGame: 0,
 	isFocusDifficultyLevel: null,
+	userHistoryGameStorage: {
+		userName: "",
+		userMoves: 0,
+		gameDuration: 0,
+		dataOfTheGame: new Date(),
+	},
 
 	setUserCurrentName: name => set({ userCurrentName: name }),
 	setDifficultyLevel: level => {
@@ -60,14 +75,9 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 	setUserCurrentPoints: () => set(state => ({ userCurrentPoints: state.userCurrentGuessedCards.length })),
 	incrementMoves: () => set(state => ({ userCurrentMoves: state.userCurrentMoves + 1 })),
 	guessCard: cardName => set(state => ({ userCurrentGuessedCards: [...state.userCurrentGuessedCards, cardName] })),
-	setTimeOfTheGame: time => {
-		set(state => ({
-			timeOfTheGame: {
-				...state.timeOfTheGame,
-				time,
-			},
-		}));
-	},
+	setTimeOfTheGame: time => set(() => ({ timeOfTheGame: time })),
+	setStartTimer() {},
+	setStopTimer() {},
 	setIsFocusDifficultyLevel: level => set(() => ({ isFocusDifficultyLevel: level })),
 	restartGame: () =>
 		set({
@@ -77,13 +87,16 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 			difficultyLevel: "",
 			userCurrentMoves: 0,
 			photosToFields: [],
-			timeOfTheGame: {
-				minutes: 0,
-				seconds: 0,
-				hundredths: 0,
-			},
+			isTimerRunning: false,
+			timeOfTheGame: 0,
 			isFocusDifficultyLevel: null,
 		}),
+	setUserHistoryGameStorage: userData =>
+		set(state => ({
+			userHistoryGameStorage: {
+				...state.userHistoryGameStorage,
+			},
+		})),
 }));
 
 export default useUserCurrentDataState;

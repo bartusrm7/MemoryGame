@@ -3,7 +3,8 @@ import "../../sass/shared-styles/card.scss";
 import useUserCurrentDataState from "../../store/userCurrentDataStore";
 
 const Card: React.FC = () => {
-	const { userCurrentGuessedCards, photosToFields, incrementMoves } = useUserCurrentDataState();
+	const { userCurrentGuessedCards, photosToFields, incrementMoves, setTimeOfTheGame, timeOfTheGame } =
+		useUserCurrentDataState();
 	const [isCardRotated, setIsCardRotated] = useState<boolean[]>(Array(photosToFields.length).fill(false));
 	const [flippedCards, setFlippedCards] = useState<number[]>([]);
 	const [isMatchedCards, setIsMatchedCards] = useState<string[]>([]);
@@ -33,6 +34,13 @@ const Card: React.FC = () => {
 	};
 
 	useEffect(() => {
+		const timerInterval = setInterval(() => {
+			setTimeOfTheGame(timeOfTheGame);
+		}, 1000);
+		return () => clearInterval(timerInterval);
+	});
+
+	useEffect(() => {
 		setIsCardRotated(Array(photosToFields.length).fill(false));
 	}, [photosToFields, isMatchedCards]);
 
@@ -48,6 +56,7 @@ const Card: React.FC = () => {
 							<div className='card__back-side-view front-back-side-card'></div>
 						</div>
 					</div>
+					<div>{timeOfTheGame}</div>
 				</div>
 			))}
 		</div>

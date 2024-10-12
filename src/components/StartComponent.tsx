@@ -12,7 +12,7 @@ const StartComponent: React.FC<StartComponentProps> = ({ isOpen, startGame }: St
 		useUserCurrentDataState();
 
 	const handleDidNotSelected = () => {
-		if (!userCurrentName || !userCurrentName.trim()) {
+		if (!userCurrentName || (!userCurrentName.trim() && !isFocusDifficultyLevel)) {
 			return;
 		} else {
 			startGame();
