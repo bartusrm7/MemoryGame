@@ -1,0 +1,8 @@
+@import "../global";
+.game-time {
+	margin-top: 2em;
+	text-align: center;
+    [data-small-margin] {
+        margin-bottom: 0.25em;
+    }
+}

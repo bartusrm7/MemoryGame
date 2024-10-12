@@ -1,13 +1,12 @@
 @import "../global";
 .card {
-	margin: 2em auto;
-	width: min-content;
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	grid-template-rows: auto;
-	grid-gap: 0.75em;
+	margin: 2em 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
 	&__main-container {
-		margin: auto;
+		margin: 0.25em;
 		width: 45px;
 		height: 45px;
 		perspective: 1000px;
@@ -45,37 +44,34 @@
 }
 @media (min-width: 376px) {
 	.card {
-		margin: 2em auto;
 		&__main-container {
-			margin: auto;
-			width: 60px;
-			height: 60px;
+			width: 55px;
+			height: 55px;
 		}
 	}
 }
 @media (min-width: 576px) {
 	.card {
-		grid-gap: 1em;
+		width: 550px;
 		&__main-container {
-			width: 75px;
-			height: 75px;
+			width: 70px;
+			height: 70px;
 		}
 	}
 }
 @media (min-width: 768px) {
 	.card {
+		width: 750px;
 		&__main-container {
-			width: 90px;
-			height: 90px;
+			width: 80px;
+			height: 80px;
 		}
 	}
 }
-@media (min-width: 1200px) {
+
+@media (min-width: 992px) {
 	.card {
-		grid-gap: 1.25em;
 		&__main-container {
-			width: 120px;
-			height: 120px;
 		}
 	}
 }

@@ -1,5 +1,13 @@
 @import "../global";
 .dashboard {
+	margin: 0 1em;
+	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	[ data-dashboard-small-container] {
+		display: flex;
+		justify-content: space-between;
+		align-items: end;
+	}
 }

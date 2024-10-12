@@ -8,26 +8,28 @@ const GameBoard: React.FC = () => {
 		<div>
 			<div className='game-board'>
 				<div className='game-board__main-container'>
-					<div className='game-board__container-label'>User results:</div>
+					<div className='game-board__container-label'>
+						<h3 className='game-board__short-description' data-user-result>
+							User results:
+						</h3>
+					</div>
 					<div className='game-board__container'>
-						<div className='game-board__short-description'>Difficulty level:</div>
+						<div className='game-board__short-description' data-font-weight>
+							Difficulty level:
+						</div>
 						<div className='game-board__user-results'>{difficultyLevel}</div>
 					</div>
 					<div className='game-board__container'>
-						<div className='game-board__short-description'>Moves amount:</div>
+						<div className='game-board__short-description' data-font-weight>
+							Moves amount:
+						</div>
 						<div className='game-board__user-results'>{userCurrentMoves}</div>
 					</div>
 					<div className='game-board__container'>
-						<div className='game-board__short-description'>Points amount:</div>
-						<div className='game-board__user-results'>{userCurrentGuessedCards.length}</div>
-					</div>
-					<div className='game-board__container'>
-						<div className='game-board__short-description'>Time game:</div>
-						<div className='game-board__user-results'>
-							{timeOfTheGame.minutes < 10 ? `0${timeOfTheGame.minutes}` : timeOfTheGame.minutes}:
-							{timeOfTheGame.seconds < 10 ? `0${timeOfTheGame.seconds}` : timeOfTheGame.seconds}:
-							{timeOfTheGame.hundredths < 10 ? `0${timeOfTheGame.hundredths}` : timeOfTheGame.hundredths}
+						<div className='game-board__short-description' data-font-weight>
+							Points amount:
 						</div>
+						<div className='game-board__user-results'>{userCurrentGuessedCards.length}</div>
 					</div>
 				</div>
 			</div>

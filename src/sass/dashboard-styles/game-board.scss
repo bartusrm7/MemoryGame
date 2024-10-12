@@ -1,9 +1,16 @@
 @import "../global";
 .game-board {
+	margin-top: 2em;
 	&__container {
 		display: flex;
 	}
-    &__short-description {
-        margin-right: 0.5em;
+	&__short-description {
+		margin-right: 0.5em;
+	}
+	[data-user-result] {
+		margin: 0.25em 0;
+	}
+    [ data-font-weight] {
+        font-weight: bold;
     }
 }

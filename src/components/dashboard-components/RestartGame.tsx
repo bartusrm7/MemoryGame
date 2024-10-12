@@ -9,7 +9,7 @@ const ResetGame: React.FC<RestartGameProps> = ({ resetToStartComponent }: Restar
 	const { restartGame } = useUserCurrentDataState();
 
 	return (
-		<div>
+		<div className='restart-game'>
 			<Button
 				title='Restart Game'
 				onClick={() => {
