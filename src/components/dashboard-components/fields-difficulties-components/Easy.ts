@@ -1,13 +1,13 @@
-import img1 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img2 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img3 from "../../../assets/react.svg";
-import img4 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img5 from "../../../assets/react.svg";
-import img6 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img7 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img8 from "../../../assets/react.svg";
-import img9 from "../../../assets/Zrzut ekranu 2023-12-27 130639.png";
-import img10 from "../../../assets/react.svg";
+import img1 from "../../../assets/balls/piłka1.jpg";
+import img2 from "../../../assets/balls/piłka2.jpg";
+import img3 from "../../../assets/balls/piłka3.jpg";
+import img4 from "../../../assets/balls/piłka4.jpg";
+import img5 from "../../../assets/balls/piłka5.jpg";
+import img6 from "../../../assets/balls/piłka6.jpg";
+import img7 from "../../../assets/balls/piłka7.jpg";
+import img8 from "../../../assets/balls/piłka8.jpg";
+import img9 from "../../../assets/balls/piłka9.jpg";
+import img10 from "../../../assets/balls/piłka10.jpg";
 
 const EASY_PHOTOS = [
 	img1,
