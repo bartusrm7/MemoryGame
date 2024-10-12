@@ -17,6 +17,8 @@ const Card: React.FC = () => {
 	const [flippedCards, setFlippedCards] = useState<number[]>([]);
 	const [isMatchedCards, setIsMatchedCards] = useState<string[]>([]);
 
+	
+
 	const handleRotateParticularCard = (index: number) => {
 		const spreadWholeRotatedCards = [...isCardRotated];
 		spreadWholeRotatedCards[index] = !spreadWholeRotatedCards[index];
