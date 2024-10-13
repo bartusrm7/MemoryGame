@@ -11,10 +11,25 @@ const Card: React.FC = () => {
 		isTimerRunning,
 		setStartTimer,
 		setStopTimer,
+		setUserHistoryGameStorage,
+		userCurrentName,
+		userCurrentMoves,
+		timeOfTheGame,
+		difficultyLevel,
 	} = useUserCurrentDataState();
 	const [isCardRotated, setIsCardRotated] = useState<boolean[]>(Array(photosToFields.length).fill(false));
 	const [flippedCards, setFlippedCards] = useState<number[]>([]);
 	// const [isMatchedCards, setIsMatchedCards] = useState<string[]>([]);
+	const [currentDate] = useState<Date>(new Date());
+
+	const userLocalStorageData = {
+		userName: userCurrentName,
+		userMoves: userCurrentMoves,
+		userPoints: userCurrentGuessedCards.length,
+		difficultyLevel: difficultyLevel,
+		gameDuration: timeOfTheGame,
+		dataOfTheGame: currentDate,
+	};
 
 	const handleRotateParticularCard = (index: number) => {
 		const spreadWholeRotatedCards = [...isCardRotated];
@@ -34,6 +49,7 @@ const Card: React.FC = () => {
 				//NAPISAĆ KOD DO TEGO, ABY MOŻNA BYŁO ZOSTAWIAĆ KARTY OTWARTE JEŻELI SĄ ONE MATCH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				if (userCurrentGuessedCards.length === photosToFields.length) {
 					setStopTimer();
+					setUserHistoryGameStorage(userLocalStorageData);
 				}
 			}
 			incrementMoves();
@@ -51,7 +67,7 @@ const Card: React.FC = () => {
 			}
 		}, 1000);
 		return () => clearInterval(timerInterval);
-	});
+	}, [isTimerRunning]);
 
 	useEffect(() => {
 		setIsCardRotated(Array(photosToFields.length).fill(false));

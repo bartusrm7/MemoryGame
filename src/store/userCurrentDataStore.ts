@@ -22,6 +22,8 @@ interface userCurrentDataState {
 	userHistoryGameStorage: {
 		userName: string;
 		userMoves: number;
+		userPoints: number;
+		difficultyLevel: string;
 		gameDuration: number;
 		dataOfTheGame: Date;
 	};
@@ -40,6 +42,8 @@ interface userCurrentDataState {
 	setUserHistoryGameStorage: (userData: {
 		userName: string;
 		userMoves: number;
+		userPoints: number;
+		difficultyLevel: string;
 		gameDuration: number;
 		dataOfTheGame: Date;
 	}) => void;
@@ -58,6 +62,8 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 	userHistoryGameStorage: {
 		userName: "",
 		userMoves: 0,
+		userPoints: 0,
+		difficultyLevel: "",
 		gameDuration: 0,
 		dataOfTheGame: new Date(),
 	},
@@ -93,12 +99,35 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 			timeOfTheGame: 0,
 			isFocusDifficultyLevel: null,
 		}),
-	setUserHistoryGameStorage: userData =>
-		set(state => ({
-			userHistoryGameStorage: {
-				...state.userHistoryGameStorage,
-			},
-		})),
+	setUserHistoryGameStorage: (userData: {
+		userName: string;
+		userMoves: number;
+		userPoints: number;
+		difficultyLevel: string;
+		gameDuration: number;
+		dataOfTheGame: Date;
+	}) => {
+		set(() => ({
+			userHistoryGameStorage: userData,
+		}));
+		const userDataExisting = localStorage.getItem("userData");
+		let users: {
+			userName: string;
+			userMoves: number;
+			userPoints: number;
+			difficultyLevel: string;
+			gameDuration: number;
+			dataOfTheGame: Date;
+		}[] = userDataExisting ? JSON.parse(userDataExisting) : [];
+
+		const userExisting = users.find(user => user.userName === userData.userName);
+		if (userExisting) {
+			Object.assign(userExisting, userData);
+		} else {
+			users.push(userData);
+		}
+		localStorage.setItem("userData", JSON.stringify(users));
+	},
 }));
 
 export default useUserCurrentDataState;
