@@ -16,10 +16,11 @@ const Card: React.FC = () => {
 		userCurrentMoves,
 		timeOfTheGame,
 		difficultyLevel,
+		guessCard,
 	} = useUserCurrentDataState();
 	const [isCardRotated, setIsCardRotated] = useState<boolean[]>(Array(photosToFields.length).fill(false));
 	const [flippedCards, setFlippedCards] = useState<number[]>([]);
-	// const [isMatchedCards, setIsMatchedCards] = useState<string[]>([]);
+	const [isMatchedCards, setIsMatchedCards] = useState<number[]>([]);
 	const [currentDate] = useState<Date>(new Date());
 
 	const userLocalStorageData = {
@@ -32,31 +33,42 @@ const Card: React.FC = () => {
 	};
 
 	const handleRotateParticularCard = (index: number) => {
+		if (isMatchedCards.includes(index) || flippedCards.includes(index)) return;
+
 		const spreadWholeRotatedCards = [...isCardRotated];
 		spreadWholeRotatedCards[index] = !spreadWholeRotatedCards[index];
 		setIsCardRotated(spreadWholeRotatedCards);
 
 		if (spreadWholeRotatedCards[index]) {
-			flippedCards.push(index);
-		}
+			setFlippedCards(prevState => [...prevState, index]);
 
-		if (flippedCards.length === 2) {
-			const firstPair = photosToFields[flippedCards[0]];
-			const secondPair = photosToFields[flippedCards[1]];
+			if (flippedCards.length === 1) {
+				const firstPair = photosToFields[flippedCards[0]];
+				const secondPair = photosToFields[index];
 
-			if (firstPair === secondPair) {
-				userCurrentGuessedCards.push(firstPair, secondPair);
-				//NAPISAĆ KOD DO TEGO, ABY MOŻNA BYŁO ZOSTAWIAĆ KARTY OTWARTE JEŻELI SĄ ONE MATCH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				if (userCurrentGuessedCards.length === photosToFields.length) {
-					setStopTimer();
-					setUserHistoryGameStorage(userLocalStorageData);
+				if (firstPair === secondPair) {
+					userCurrentGuessedCards.push(firstPair, secondPair);
+					setIsMatchedCards(prevState => [...prevState, flippedCards[0], index]);
+
+					if (userCurrentGuessedCards.length === photosToFields.length) {
+						setStopTimer();
+						setUserHistoryGameStorage(userLocalStorageData);
+					}
+				} else {
+					incrementMoves();
+					setTimeout(() => {
+						setIsCardRotated(prevState => {
+							const newState = [...prevState];
+							newState[flippedCards[0]] = false;
+							newState[index] = false;
+							return newState;
+						});
+					}, 700);
 				}
+				setFlippedCards([]);
+			} else if (flippedCards.length === 0) {
+				setFlippedCards([index]);
 			}
-			incrementMoves();
-			setFlippedCards([]);
-			setTimeout(() => {
-				setIsCardRotated(Array(photosToFields.length).fill(false));
-			}, 700);
 		}
 	};
 
@@ -84,7 +96,7 @@ const Card: React.FC = () => {
 						setStartTimer();
 					}}>
 					<div className={`card__container ${isCardRotated[index] ? "rotate" : ""}`}>
-						<div className={`card__front-side ${userCurrentGuessedCards ? "stop-rotate" : ""}`}>
+						<div className='card__front-side'>
 							<img className='card__front-side-view front-back-side-card' src={photo} alt={`Photos number ${index}`} />
 						</div>
 						<div className='card__back-side'>
