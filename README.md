@@ -14,6 +14,19 @@ Game is also full responsive.
 
 ---
 
+**Features:**
+- Three difficulty levels:
+   - sports (easy),
+   - animals (medium),
+   - languages (hard).
+- Moves amount counter,
+- Points amount counter,
+- Responsive design includes mobiles, tablets and desktops,
+- Timer informing about game duration.
+
+
+---
+
 **Technologies:**
 - React + Vite,
 - TypeScript,
