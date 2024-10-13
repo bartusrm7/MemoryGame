@@ -16,11 +16,10 @@ const Card: React.FC = () => {
 		userCurrentMoves,
 		timeOfTheGame,
 		difficultyLevel,
-		guessCard,
 	} = useUserCurrentDataState();
 	const [isCardRotated, setIsCardRotated] = useState<boolean[]>(Array(photosToFields.length).fill(false));
 	const [flippedCards, setFlippedCards] = useState<number[]>([]);
-	const [isMatchedCards, setIsMatchedCards] = useState<number[]>([]);
+	const [isMatchedCards] = useState<number[]>([]);
 	const [currentDate] = useState<Date>(new Date());
 
 	const userLocalStorageData = {
@@ -48,11 +47,11 @@ const Card: React.FC = () => {
 
 				if (firstPair === secondPair) {
 					userCurrentGuessedCards.push(firstPair, secondPair);
-					setIsMatchedCards(prevState => [...prevState, flippedCards[0], index]);
 
 					if (userCurrentGuessedCards.length === photosToFields.length) {
+						isTimerRunning;
 						setStopTimer();
-						setUserHistoryGameStorage(userLocalStorageData);
+						setUserHistoryGameStorage({ ...userLocalStorageData, userPoints: userCurrentGuessedCards.length });
 					}
 				} else {
 					incrementMoves();
@@ -93,7 +92,9 @@ const Card: React.FC = () => {
 					className='card__main-container'
 					onClick={() => {
 						handleRotateParticularCard(index);
-						setStartTimer();
+						if (!isTimerRunning) {
+							setStartTimer();
+						}
 					}}>
 					<div className={`card__container ${isCardRotated[index] ? "rotate" : ""}`}>
 						<div className='card__front-side'>
