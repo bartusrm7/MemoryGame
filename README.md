@@ -27,8 +27,6 @@ Game is also full responsive.
 
 ---
 
-<img src="/src//assets/screenshots/Zrzut ekranu 2024-10-13 145659.png" alt="">
-
 **Features:**
 
 - Three difficulty levels:
