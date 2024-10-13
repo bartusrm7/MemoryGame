@@ -1,50 +1,42 @@
-# React + TypeScript + Vite
+# MemoryGame
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MemoryGame is a interactive memory card game. User have to match pairs of cards, after matched every cards then user win. 
+Game is also full responsive.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+**How to play:**
+1. On the begining user have to write name and choose difficulty level.
+<img src="/src/assets/screenshots/Zrzut ekranu 2024-10-13 145659.png" width="200px" alt="" />
+<img src="/src/assets/screenshots/Zrzut ekranu 2024-10-13 145741.png" width="300px" alt="" />
+2. User can try to match pairs of cards.
+<img src="/src/assets/screenshots/Zrzut ekranu 2024-10-13 145804.png" width="200px" alt="" />
+<img src="/src/assets/screenshots/Zrzut ekranu 2024-10-13 145849.png" width="300px" alt="" />
+3. After matched every cards user won and see the information about it.
+<img src="/src/assets/screenshots/Zrzut ekranu 2024-10-13 163611.png" width="200px" alt="" />
+<img src="/src/assets/screenshots/Zrzut ekranu 2024-10-13 162136.png" width="300px" alt="" />
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+**Features:**
+- Three difficulty levels:
+   - sports (easy),
+   - animals (medium),
+   - languages (hard).
+- Moves amount counter,
+- Points amount counter,
+- Responsive design includes mobiles, tablets and desktops,
+- Timer informing about game duration.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+---
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+**Technologies:**
+- React + Vite,
+- TypeScript,
+- SCSS,
+- Zustand.
+
+  

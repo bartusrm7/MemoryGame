@@ -19,6 +19,7 @@ interface userCurrentDataState {
 	isTimerRunning: boolean;
 	timeOfTheGame: number;
 	isFocusDifficultyLevel: string | null;
+	isUserWon: boolean;
 	userHistoryGameStorage: {
 		userName: string;
 		userMoves: number;
@@ -37,7 +38,8 @@ interface userCurrentDataState {
 	setStartTimer: () => void;
 	setStopTimer: () => void;
 	setIsFocusDifficultyLevel: (level: string | null) => void;
-	restartGame: () => void;
+	setIsUserWon: (status: boolean) => void;
+	restartGame: (status: boolean) => void;
 
 	setUserHistoryGameStorage: (userData: {
 		userName: string;
@@ -59,6 +61,7 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 	isTimerRunning: false,
 	timeOfTheGame: 0,
 	isFocusDifficultyLevel: null,
+	isUserWon: false,
 	userHistoryGameStorage: {
 		userName: "",
 		userMoves: 0,
@@ -87,6 +90,7 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 	setStopTimer: () => set(() => ({ isTimerRunning: false })),
 
 	setIsFocusDifficultyLevel: level => set(() => ({ isFocusDifficultyLevel: level })),
+	setIsUserWon: status => set(() => ({ isUserWon: status })),
 	restartGame: () =>
 		set({
 			userCurrentName: "",
@@ -98,6 +102,7 @@ const useUserCurrentDataState = create<userCurrentDataState>(set => ({
 			isTimerRunning: false,
 			timeOfTheGame: 0,
 			isFocusDifficultyLevel: null,
+			isUserWon: false,
 		}),
 	setUserHistoryGameStorage: (userData: {
 		userName: string;

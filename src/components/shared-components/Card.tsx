@@ -16,6 +16,7 @@ const Card: React.FC = () => {
 		userCurrentMoves,
 		timeOfTheGame,
 		difficultyLevel,
+		setIsUserWon,
 	} = useUserCurrentDataState();
 	const [isCardRotated, setIsCardRotated] = useState<boolean[]>(Array(photosToFields.length).fill(false));
 	const [flippedCards, setFlippedCards] = useState<number[]>([]);
@@ -52,6 +53,7 @@ const Card: React.FC = () => {
 						isTimerRunning;
 						setStopTimer();
 						setUserHistoryGameStorage({ ...userLocalStorageData, userPoints: userCurrentGuessedCards.length });
+						setIsUserWon(true);
 					}
 				} else {
 					incrementMoves();

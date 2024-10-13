@@ -44,6 +44,11 @@
 	.rotate {
 		transform: rotateY(180deg);
 	}
+	&__congratulations-message {
+		margin-top: 2em;
+		border-bottom: 5px solid;
+		text-align: center;
+	}
 }
 @media (min-width: 376px) {
 	.card {
