@@ -9,7 +9,7 @@ Game is also full responsive.
 
 1. On the begining user have to write name and choose difficulty level.
 
-<img src="/src/assets/screenshots/Zrzut ekranu 2024-10-13 145659.png" width="200px" height="250px" alt="" /<img src="/src/assets/screenshots/Zrzut ekranu 2024-10-13 145741.png" width="300px" height="250px" alt="" />
+<img src="/src/assets/screenshots/Zrzut ekranu 2024-10-13 145659.png" width="200px" height="250px" alt="" /><img src="/src/assets/screenshots/Zrzut ekranu 2024-10-13 145741.png" width="300px" height="250px" alt="" />
 
 2. User can try to match pairs of cards.
 
