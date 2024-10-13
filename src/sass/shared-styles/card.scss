@@ -44,8 +44,6 @@
 	.rotate {
 		transform: rotateY(180deg);
 	}
-	.stop-rotate {
-	}
 }
 @media (min-width: 376px) {
 	.card {
@@ -72,14 +70,4 @@
 			height: 80px;
 		}
 	}
-}
-
-@media (min-width: 992px) {
-	.card {
-		&__main-container {
-		}
-	}
-}
-.koko {
-	pointer-events: none;
 }
