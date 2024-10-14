@@ -36,11 +36,11 @@ Game is also full responsive.
 - Zustand.
 
 ## Install:
-  - clone repo
+  clone repo
     ```
     git@github.com:bartusrm7/MemoryGame.git
     ```
-  - run code
+  run code
     ```
     npm run dev
     ```
