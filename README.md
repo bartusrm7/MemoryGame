@@ -5,7 +5,7 @@ Game is also full responsive.
 
 ---
 
-**How to play:**
+## How to play:
 
 1. On the begining user have to write name and choose difficulty level.
 
@@ -21,7 +21,7 @@ Game is also full responsive.
 
 ---
 
-**Features:**
+## Features:
 
 - Three difficulty levels:
   - sports (easy),
@@ -34,9 +34,19 @@ Game is also full responsive.
 
 ---
 
-**Technologies:**
+## Technologies:
 
 - React + Vite,
 - TypeScript,
 - SCSS,
 - Zustand.
+
+## Install:
+  - clone repo
+    ```
+    git@github.com:bartusrm7/MemoryGame.git
+    ```
+  - run code
+    ```
+    npm run dev
+    ```
