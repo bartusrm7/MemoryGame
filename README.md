@@ -3,8 +3,6 @@
 MemoryGame is an interactive memory card game. User have to match pairs of cards, after matched every cards then user win.
 Game is also full responsive.
 
----
-
 ## How to play:
 
 1. On the begining user have to write name and choose difficulty level.
@@ -19,8 +17,6 @@ Game is also full responsive.
 
 <img src="/src/assets/screenshots/Zrzut ekranu 2024-10-13 163611.png" width="200px" height="250px" alt="" /><img src="/src/assets/screenshots/Zrzut ekranu 2024-10-13 162136.png" width="400px" height="250px" alt="" />
 
----
-
 ## Features:
 
 - Three difficulty levels:
@@ -31,8 +27,6 @@ Game is also full responsive.
 - Points amount counter,
 - Responsive design includes mobiles, tablets and desktops,
 - Timer informing about game duration.
-
----
 
 ## Technologies:
 
