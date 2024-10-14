@@ -36,6 +36,7 @@ Game is also full responsive.
 - Zustand.
 
 ## Install:
+
   clone repo
     ```
     git@github.com:bartusrm7/MemoryGame.git
